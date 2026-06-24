@@ -1,0 +1,33 @@
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slideDown {
+  animation: slideDown 250ms ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 300ms ease forwards;
+  opacity: 0;
+}
+
+@keyframes nudgeLeft {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+.animate-nudgeLeft {
+  animation: nudgeLeft 1.5s ease-in-out infinite;
+}
+
+/* Ensure body doesn't scroll */
+body {
+  margin: 0;
+  overflow: hidden;
+}
