@@ -11,7 +11,10 @@ export const mockWidgets = [
     data: [1.8, 1.9, 2.0, 1.9, 2.1, 2.2, 2.1, 2.3],
     renderType: "stat-callout",
     chatThread: [
-      { id: "msg1", role: "ai", message: { text: "Learning velocity has increased significantly this week.", stat: "Up 18%" }, renderType: "stat-callout" }
+      { id: "msg0", role: "user", message: "Can you summarize the current learning velocity trend?" },
+      { id: "msg1", role: "ai", message: { text: "Learning velocity has increased significantly this week.", stat: "Up 18%" }, renderType: "stat-callout" },
+      { id: "msg2", role: "user", message: "Is this trend consistent across all departments?" },
+      { id: "msg3", role: "ai", message: "Yes, velocity is up across the board, with Engineering leading the way due to their recent shift to asynchronous modules.", renderType: "text" }
     ],
     suggestedQuestions: [
       "Why is velocity increasing?",
@@ -42,7 +45,10 @@ export const mockWidgets = [
     ],
     renderType: "insight-card",
     chatThread: [
-      { id: "msg2", role: "ai", message: { insights: ["Sales department showed highest improvement", "Support scores are consistently strong"] }, renderType: "insight-card" }
+      { id: "msg0-2", role: "user", message: "Any notable improvements in knowledge retention?" },
+      { id: "msg1-2", role: "ai", message: { insights: ["Sales department showed highest improvement", "Support scores are consistently strong"] }, renderType: "insight-card" },
+      { id: "msg2-2", role: "user", message: "Are there any specific areas of concern right now?" },
+      { id: "msg3-2", role: "ai", message: "Compliance training retention drops significantly after week 3. It might be worth deploying a quick refresher module to those teams.", renderType: "text" }
     ],
     suggestedQuestions: [
       "Show me the Sales breakdown",
@@ -72,7 +78,10 @@ export const mockWidgets = [
     ],
     renderType: "alert-text",
     chatThread: [
-      { id: "msg3", role: "ai", message: { parts: [{ text: "There are currently " }, { text: "14 learners", bold: true }, { text: " marked as at-risk, with a concentration in the " }, { text: "Sales department", bold: true }, { text: "." }] }, renderType: "alert-text" }
+      { id: "msg0-3", role: "user", message: "Give me an update on the at-risk learners." },
+      { id: "msg1-3", role: "ai", message: { parts: [{ text: "There are currently " }, { text: "14 learners", bold: true }, { text: " marked as at-risk, with a concentration in the " }, { text: "Sales department", bold: true }, { text: "." }] }, renderType: "alert-text" },
+      { id: "msg2-3", role: "user", message: "Have their respective managers been notified?" },
+      { id: "msg3-3", role: "ai", message: "Not yet. You can use the suggested action below to automatically draft and send reminders to the 4 department managers.", renderType: "text" }
     ],
     suggestedQuestions: [
       "Who are the new at-risk learners?",

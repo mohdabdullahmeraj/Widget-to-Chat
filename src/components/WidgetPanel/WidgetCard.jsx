@@ -7,8 +7,8 @@ function Sparkline({ data, color }) {
   const min = Math.min(...data)
   const max = Math.max(...data)
   const range = max - min || 1
-  const height = 30
-  const width = 60
+  const height = 48
+  const width = 96
   
   const points = data.map((d, i) => {
     const x = (i / (data.length - 1)) * width
@@ -17,12 +17,12 @@ function Sparkline({ data, color }) {
   }).join(" ")
 
   return (
-    <svg viewBox={`-2 -2 ${width + 4} ${height + 4}`} className="w-16 h-8 overflow-visible opacity-80">
+    <svg viewBox={`-2 -2 ${width + 4} ${height + 4}`} className="w-24 h-12 overflow-visible opacity-80">
       <polyline
         points={points}
         fill="none"
         stroke={color}
-        strokeWidth="2.5"
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -32,15 +32,15 @@ function Sparkline({ data, color }) {
 
 function Heatmap({ data, colorClass }) {
   return (
-    <div className="flex flex-col gap-[2px] w-[60px] opacity-80">
+    <div className="flex flex-col gap-1 w-24 opacity-80">
       {data.slice(0, 3).map((row, i) => (
-        <div key={i} className="flex gap-[2px] w-full h-[6px]">
+        <div key={i} className="flex gap-1 w-full h-2">
           {row.weeks.map((val, j) => {
             const opacity = val > 85 ? 0.9 : val > 75 ? 0.5 : 0.2
             return (
               <div 
                 key={j} 
-                className={cn("flex-1 rounded-[1px]", colorClass)} 
+                className={cn("flex-1 rounded-[2px]", colorClass)} 
                 style={{ opacity }}
               />
             )
@@ -54,9 +54,9 @@ function Heatmap({ data, colorClass }) {
 function BarChart({ data, colorClass }) {
   const max = Math.max(...data.map(d => d.count)) || 1
   return (
-    <div className="flex flex-col gap-1.5 w-[60px] opacity-80 justify-end h-8">
+    <div className="flex flex-col gap-2 w-24 opacity-80 justify-end h-12">
       {data.slice(0, 3).map((d, i) => (
-        <div key={i} className="w-full h-1.5 bg-gray-100 rounded overflow-hidden">
+        <div key={i} className="w-full h-2 bg-gray-100 rounded overflow-hidden">
           <div 
             className={cn("h-full rounded", colorClass)}
             style={{ width: `${(d.count / max) * 100}%` }}
@@ -150,7 +150,7 @@ export function WidgetCard({ widget, isSelected, onSelect, isCollapsed }) {
             </div>
           </div>
         </div>
-        <div className="pb-4 shrink-0">
+        <div className="mb-2 shrink-0">
           {renderVisual()}
         </div>
       </div>
